@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// UnauthorizedBusinessException.cs
+namespace Microservicio.Clientes.Business.Exceptions;
 
-namespace Microservicio.Clientes.Business.Exceptions
+public class UnauthorizedBusinessException : BusinessException
 {
-    internal class UnauthorizedBusinessException
+    public UnauthorizedBusinessException(string message)
+        : base("UNAUTHORIZED", message, 401)
     {
     }
 }

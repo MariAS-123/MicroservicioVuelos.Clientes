@@ -1,23 +1,73 @@
+using Microservicio.Clientes.Api.Extensions;
+using Microservicio.Clientes.Api.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ============================================================
+// LOGGING
+// ============================================================
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
 
+// ============================================================
+// CONTROLLERS
+// ============================================================
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+
+// ============================================================
+// API VERSIONING
+// ============================================================
+builder.Services.AddApiVersioningDocumentation();
+
+// ============================================================
+// JWT AUTHENTICATION — Solo validación, sin generación
+// ============================================================
+builder.Services.AddJwtAuthentication(builder.Configuration);
+
+// ============================================================
+// CORS
+// ============================================================
+builder.Services.AddCorsPolicy(builder.Configuration);
+
+// ============================================================
+// SWAGGER
+// ============================================================
+builder.Services.AddSwaggerDocumentation();
+
+// ============================================================
+// PROJECT SERVICES
+// DbContext + Repositories + DataManagement + Business + Integrations
+// ============================================================
+builder.Services.AddProjectServices(builder.Configuration);
+
+// ============================================================
+// AUTHORIZATION
+// ============================================================
+builder.Services.AddAuthorization();
+
+// ============================================================
+// PUERTO 5005 — MS Clientes
+// ============================================================
+builder.WebHost.UseUrls("http://localhost:5005");
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.MapGet("/", context =>
 {
-    app.MapOpenApi();
-}
+    context.Response.Redirect("/swagger");
+    return Task.CompletedTask;
+});
 
-app.UseHttpsRedirection();
+app.UseSwaggerDocumentation();
 
+if (!app.Environment.IsDevelopment())
+    app.UseHttpsRedirection();
+
+app.UseCorsPolicy();
+app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.MapControllers();
 
 app.Run();

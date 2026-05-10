@@ -1,10 +1,7 @@
-﻿// ClienteResponseDto.cs
-namespace Microservicio.Clientes.Business.DTOs.Cliente;
+﻿namespace Microservicio.Clientes.Business.Integrations;
 
-public class ClienteResponseDto
+public class UsuarioAppIntegrationRequestDto
 {
-    public int IdCliente { get; set; }
-    public Guid ClienteGuid { get; set; }
     public string TipoIdentificacion { get; set; } = null!;
     public string NumeroIdentificacion { get; set; } = null!;
     public string Nombres { get; set; } = null!;
@@ -17,5 +14,6 @@ public class ClienteResponseDto
     public int IdPaisNacionalidad { get; set; }
     public DateTime? FechaNacimiento { get; set; }
     public string? Genero { get; set; }
-    public string Estado { get; set; } = null!;
+    public string Username { get; set; } = null!;
+    public string Password { get; set; } = null!;
 }

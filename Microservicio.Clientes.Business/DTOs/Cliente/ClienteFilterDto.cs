@@ -1,10 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿// ClienteFilterDto.cs
+using Microsoft.AspNetCore.Mvc;
 
-namespace Microservicio.Clientes.Business.DTOs.Cliente
+namespace Microservicio.Clientes.Business.DTOs.Cliente;
+
+public class ClienteFilterDto
 {
-    internal class ClienteFilterDto
-    {
-    }
+    [FromQuery(Name = "numero_identificacion")]
+    public string? NumeroIdentificacion { get; set; }
+
+    [FromQuery(Name = "correo")]
+    public string? Correo { get; set; }
+
+    [FromQuery(Name = "estado")]
+    public string? Estado { get; set; }
+
+    [FromQuery(Name = "page")]
+    public int Page { get; set; } = 1;
+
+    [FromQuery(Name = "page_size")]
+    public int PageSize { get; set; } = 20;
 }
