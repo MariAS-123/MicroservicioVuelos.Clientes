@@ -50,6 +50,7 @@ public static class ServiceCollectionExtensions
                 $"La cadena de conexión '{ConnectionStringName}' no está configurada.");
 
         // ✅ Contexto actualizado al MS Clientes
+        /*
         services.AddDbContext<SistemaVuelosClientesDBContext>(options =>
         {
             options.UseNpgsql(connectionString, npgsqlOptions =>
@@ -59,6 +60,12 @@ public static class ServiceCollectionExtensions
                     maxRetryDelay: TimeSpan.FromSeconds(10),
                     errorCodesToAdd: null);
             });
+        });
+        */
+
+        services.AddDbContext<SistemaVuelosClientesDBContext>(options =>
+        {
+            options.UseNpgsql(connectionString);
         });
     }
 
