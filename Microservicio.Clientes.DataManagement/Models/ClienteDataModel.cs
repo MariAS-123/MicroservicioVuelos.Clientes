@@ -27,5 +27,4 @@ public class ClienteDataModel
     public string ServicioOrigen { get; set; } = null!;
     public DateTime? FechaInhabilitacionUtc { get; set; }
     public string? MotivoInhabilitacion { get; set; }
-    public byte[] RowVersion { get; set; } = null!;
 }

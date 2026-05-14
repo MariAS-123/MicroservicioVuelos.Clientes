@@ -8,7 +8,6 @@ public static class PasajeroDataMapper
     public static PasajeroDataModel ToDataModel(PasajeroEntity entity) => new()
     {
         IdPasajero = entity.IdPasajero,
-        RowVersion = entity.RowVersion,
         IdCliente = entity.IdCliente,
         NombrePasajero = entity.NombrePasajero,
         ApellidoPasajero = entity.ApellidoPasajero,

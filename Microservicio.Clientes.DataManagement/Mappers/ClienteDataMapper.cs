@@ -31,7 +31,6 @@ public static class ClienteDataMapper
         ServicioOrigen = entity.ServicioOrigen,
         FechaInhabilitacionUtc = entity.FechaInhabilitacionUtc,
         MotivoInhabilitacion = entity.MotivoInhabilitacion,
-        RowVersion = entity.RowVersion
     };
 
     public static ClienteEntity ToEntity(ClienteDataModel model) => new()
@@ -61,7 +60,6 @@ public static class ClienteDataMapper
         ServicioOrigen = string.IsNullOrWhiteSpace(model.ServicioOrigen) ? "CLIENTES" : model.ServicioOrigen.Trim().ToUpperInvariant(),
         FechaInhabilitacionUtc = model.FechaInhabilitacionUtc,
         MotivoInhabilitacion = string.IsNullOrWhiteSpace(model.MotivoInhabilitacion) ? null : model.MotivoInhabilitacion.Trim(),
-        RowVersion = model.RowVersion
     };
 
     public static void UpdateEntity(ClienteEntity entity, ClienteDataModel model)

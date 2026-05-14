@@ -8,7 +8,7 @@ namespace Microservicio.Clientes.DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<ClienteEntity> builder)
         {
-            builder.ToTable("CLIENTES", "crm");
+            builder.ToTable("clientes", "crm");
 
             builder.HasKey(e => e.IdCliente)
                 .HasName("PK_CLIENTES");
@@ -140,10 +140,6 @@ namespace Microservicio.Clientes.DataAccess.Configurations
                 .HasColumnName("motivo_inhabilitacion")
                 .HasMaxLength(250)
                 .IsUnicode(false);
-
-            builder.Property(e => e.RowVersion)
-                .HasColumnName("row_version")
-                .IsRowVersion();
 
             builder.HasIndex(e => e.ClienteGuid)
                 .IsUnique()

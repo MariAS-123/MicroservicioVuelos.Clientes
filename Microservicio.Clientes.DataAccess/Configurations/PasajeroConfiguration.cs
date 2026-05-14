@@ -8,7 +8,7 @@ namespace Microservicio.Clientes.DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<PasajeroEntity> builder)
         {
-            builder.ToTable("Pasajero", "ventas");
+            builder.ToTable("pasajero", "ventas");
 
             builder.HasKey(e => e.IdPasajero)
                 .HasName("PK_Pasajero");
@@ -16,9 +16,7 @@ namespace Microservicio.Clientes.DataAccess.Configurations
             builder.Property(e => e.IdPasajero)
                 .HasColumnName("id_pasajero");
 
-            builder.Property(e => e.RowVersion)
-                .HasColumnName("row_version")
-                .IsRowVersion();
+
 
             builder.Property(e => e.IdCliente)
                 .HasColumnName("id_cliente");

@@ -4,7 +4,6 @@ namespace Microservicio.Clientes.DataManagement.Models;
 public class PasajeroDataModel
 {
     public int IdPasajero { get; set; }
-    public byte[] RowVersion { get; set; } = null!;
     public int? IdCliente { get; set; }
     public string NombrePasajero { get; set; } = null!;
     public string ApellidoPasajero { get; set; } = null!;

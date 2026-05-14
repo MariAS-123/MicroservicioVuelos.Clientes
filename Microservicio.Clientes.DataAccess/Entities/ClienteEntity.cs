@@ -55,8 +55,6 @@ namespace Microservicio.Clientes.DataAccess.Entities
 
         public string? MotivoInhabilitacion { get; set; }
 
-        public byte[] RowVersion { get; set; } = null!;
-
         // ✅ Se mantiene — Pasajero vive en esta misma BDD_Clientes
         public virtual ICollection<PasajeroEntity> Pasajeros { get; set; }
             = new HashSet<PasajeroEntity>();

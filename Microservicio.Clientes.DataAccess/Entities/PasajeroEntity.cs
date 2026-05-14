@@ -7,7 +7,6 @@ namespace Microservicio.Clientes.DataAccess.Entities
     {
         public int IdPasajero { get; set; }
 
-        public byte[] RowVersion { get; set; } = null!;
 
         public int? IdCliente { get; set; }
 
