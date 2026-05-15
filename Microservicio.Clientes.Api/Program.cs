@@ -1,5 +1,6 @@
 using Microservicio.Clientes.Api.Extensions;
 using Microservicio.Clientes.Api.Middleware;
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 var builder = WebApplication.CreateBuilder(args);
 
