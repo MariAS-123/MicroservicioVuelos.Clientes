@@ -1,8 +1,9 @@
-﻿using System.Net.Http.Json;
-using System.Text.Json;
-using Microservicio.Clientes.Business.Exceptions;
+﻿using Microservicio.Clientes.Business.Exceptions;
 using Microservicio.Clientes.Business.Integrations;
 using Microservicio.Clientes.Business.Integrations.Interfaces;
+using System.Net.Http.Json;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Microservicio.Clientes.Api.Integrations;
 
@@ -65,7 +66,10 @@ public class SeguridadIntegrationService : ISeguridadIntegrationService
     // Wrapper para deserializar la respuesta estándar ApiResponse<T> del MS Seguridad
     private class ApiResponseWrapper<T>
     {
+        [JsonPropertyName("data")]
         public T? Data { get; set; }
+
+        [JsonPropertyName("message")]
         public string? Message { get; set; }
     }
 }

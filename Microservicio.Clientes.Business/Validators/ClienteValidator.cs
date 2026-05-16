@@ -96,8 +96,10 @@ public class ClienteValidator
 
                     if (!Regex.IsMatch(cedula, @"^\d{10}$"))
                         errors.Add("La cédula ecuatoriana debe tener exactamente 10 dígitos numéricos.");
-                    else if (!cedula.StartsWith("17"))
-                        errors.Add("La cédula ecuatoriana debe comenzar con 17 (provincia de Pichincha).");
+
+                    else if (int.Parse(cedula.Substring(0, 2)) < 1 ||
+                             int.Parse(cedula.Substring(0, 2)) > 24)
+                        errors.Add("La cédula ecuatoriana tiene un código de provincia inválido.");
                 }
             }
         }
