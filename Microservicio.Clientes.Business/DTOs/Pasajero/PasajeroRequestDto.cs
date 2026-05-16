@@ -5,39 +5,39 @@ namespace Microservicio.Clientes.Business.DTOs.Pasajero;
 
 public class PasajeroRequestDto
 {
-    [JsonPropertyName("id_cliente")]
+    [JsonPropertyName("idCliente")]
     public int? IdCliente { get; set; }
 
-    [JsonPropertyName("nombre_pasajero")]
+    [JsonPropertyName("nombrePasajero")]
     public string NombrePasajero { get; set; } = null!;
 
-    [JsonPropertyName("apellido_pasajero")]
+    [JsonPropertyName("apellidoPasajero")]
     public string ApellidoPasajero { get; set; } = null!;
 
-    [JsonPropertyName("tipo_documento_pasajero")]
+    [JsonPropertyName("tipoDocumentoPasajero")]
     public string TipoDocumentoPasajero { get; set; } = null!;
 
-    [JsonPropertyName("numero_documento_pasajero")]
+    [JsonPropertyName("numeroDocumentoPasajero")]
     public string NumeroDocumentoPasajero { get; set; } = null!;
 
-    [JsonPropertyName("fecha_nacimiento_pasajero")]
+    [JsonPropertyName("fechaNacimientoPasajero")]
     public DateTime? FechaNacimientoPasajero { get; set; }
 
-    [JsonPropertyName("id_pais_nacionalidad")]
+    [JsonPropertyName("idPaisNacionalidad")]
     public int? IdPaisNacionalidad { get; set; }
 
-    [JsonPropertyName("email_contacto_pasajero")]
+    [JsonPropertyName("emailContactoPasajero")]
     public string? EmailContactoPasajero { get; set; }
 
-    [JsonPropertyName("telefono_contacto_pasajero")]
+    [JsonPropertyName("telefonoContactoPasajero")]
     public string? TelefonoContactoPasajero { get; set; }
 
-    [JsonPropertyName("genero_pasajero")]
+    [JsonPropertyName("generoPasajero")]
     public string? GeneroPasajero { get; set; }
 
-    [JsonPropertyName("requiere_asistencia")]
+    [JsonPropertyName("requiereAsistencia")]
     public bool RequiereAsistencia { get; set; }
 
-    [JsonPropertyName("observaciones_pasajero")]
+    [JsonPropertyName("observacionesPasajero")]
     public string? ObservacionesPasajero { get; set; }
 }

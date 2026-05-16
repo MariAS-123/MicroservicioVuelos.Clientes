@@ -14,7 +14,11 @@ builder.Logging.AddDebug();
 // ============================================================
 // CONTROLLERS
 // ============================================================
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNameCaseInsensitive = true;
+    });
 
 // ============================================================
 // API VERSIONING
