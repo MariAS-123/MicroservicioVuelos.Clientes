@@ -45,4 +45,7 @@ public class UsuarioAppIntegrationRequestDto
 
     [JsonPropertyName("password")]
     public string Password { get; set; } = null!;
+
+    [JsonPropertyName("id_cliente")]
+    public int? IdCliente { get; set; }
 }

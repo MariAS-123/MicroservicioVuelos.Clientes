@@ -91,6 +91,7 @@ public class ClienteService : IClienteService
         {
             var usuarioRequest = new UsuarioAppIntegrationRequestDto
             {
+                IdCliente = creado.IdCliente,  // ← agregar esta línea
                 TipoIdentificacion = request.TipoIdentificacion,
                 NumeroIdentificacion = request.NumeroIdentificacion,
                 Nombres = request.Nombres,
